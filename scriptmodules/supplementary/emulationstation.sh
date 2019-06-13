@@ -10,8 +10,8 @@
 #
 
 rp_module_id="emulationstation"
-rp_module_desc="EmulationStation - Frontend used by RetroPie for launching emulators"
-rp_module_licence="MIT https://raw.githubusercontent.com/RetroPie/EmulationStation/master/LICENSE.md"
+rp_module_desc="EmulationStation - Worukami"
+rp_module_licence="MIT https://raw.githubusercontent.com/joaxn/EmulationStation/master/LICENSE.md"
 rp_module_section="core"
 rp_module_flags="frontend"
 
@@ -137,13 +137,7 @@ function sources_emulationstation() {
     local repo="$1"
     local branch="$2"
     [[ -z "$repo" ]] && repo="https://github.com/joaxn/EmulationStation"
-    if [[ -z "$branch" ]]; then
-        if compareVersions "$__os_debian_ver" gt 8; then
-            branch="stable"
-        else
-            branch="v2.7.6"
-        fi
-    fi
+    [[ -z "$branch" ]] && branch="master"
     gitPullOrClone "$md_build" "$repo" "$branch"
 }
 
@@ -161,6 +155,7 @@ function install_emulationstation() {
         'CREDITS.md'
         'emulationstation'
         'emulationstation.sh'
+		'systemupdate.sh'
         'GAMELISTS.md'
         'README.md'
         'resources'
