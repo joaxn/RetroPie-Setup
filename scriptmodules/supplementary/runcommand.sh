@@ -69,18 +69,6 @@ function governor_runcommand() {
     fi
 }
 
-#joaxn
-function diable_menu() {
-    iniSet "disable_menu" "1"        
-    done
-}
-
-#joaxn
-function enable_menu() {
-    iniSet "disable_menu" "0"        
-    done
-}
-
 function gui_runcommand() {
     local config="$configdir/all/runcommand.cfg"
     iniConfig " = " '"' "$config"
